@@ -18,8 +18,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "git": "git add . && git commit -m",
-    "postgit": "git push --all"
+    "commit": "git add . && git commit -m",
+    "push": "git push --all"
   },
   "dependencies": {
     "@angular/animations": "~7.1.0",
