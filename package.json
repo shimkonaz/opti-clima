@@ -13,7 +13,7 @@
   "homepage": "https://shimkonaz.github.io/opti-clima/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --open",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
