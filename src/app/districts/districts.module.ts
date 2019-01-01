@@ -6,7 +6,10 @@ import { DistrictsListComponent } from './districts-list/districts-list.componen
 import { DistrictDetailComponent } from './district-detail/district-detail.component';
 
 @NgModule({
-  declarations: [DistrictsListComponent, DistrictDetailComponent],
+  declarations: [
+    DistrictsListComponent, 
+    DistrictDetailComponent
+  ],
   imports: [
     CommonModule,
     DistrictsRoutingModule

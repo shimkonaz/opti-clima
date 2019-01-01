@@ -1,3 +1,7 @@
-<p>
-  districts-list works!
-</p>
+<div>
+  <ul>
+    <li *ngFor="let district of districts | async">
+      <pre>{{ district.title }}</pre>
+    </li>
+  </ul>
+</div>

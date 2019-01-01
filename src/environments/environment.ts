@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyC7RiyRN3qaCwtOfg7-BastJUlziHyWp0I",
+    authDomain: "opti-clima.firebaseapp.com",
+    databaseURL: "https://opti-clima.firebaseio.com",
+    projectId: "opti-clima",
+    storageBucket: "opti-clima.appspot.com",
+    messagingSenderId: "372429267973"
+  }
 };
 
 /*

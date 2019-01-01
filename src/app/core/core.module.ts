@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { CoreRoutingModule } from './core-routing.module';
 import { LoginComponent } from './login/login.component';
@@ -23,6 +24,12 @@ import { HomeComponent } from './home/home.component';
   imports: [
     CommonModule,
     CoreRoutingModule
+  ],
+  exports: [
+    RouterModule,
+    HeaderComponent,
+    FooterComponent,
+    NavigationComponent
   ]
 })
 export class CoreModule { }
