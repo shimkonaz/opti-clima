@@ -19,10 +19,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "commit": "git add . && git commit -m",
-    "push": "git push --all"
+    "postcommit": "git push --all"
   },
   "dependencies": {
-    "@angular/animations": "~7.1.0",
     "@angular/common": "~7.1.0",
     "@angular/compiler": "~7.1.0",
     "@angular/core": "~7.1.0",
