@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
-import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +16,6 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router,
     private authenticationService: AuthenticationService
   ) { }
 
@@ -38,22 +36,12 @@ export class SignupComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    // stop here if form is invalid
     if (this.registerForm.invalid) {
         return;
     }
 
     this.loading = true;
-    this.authenticationService.signup(this.registerForm.value)
-        // .pipe(first())
-        // .subscribe(
-        //     data => {
-        //         console.warn('Registration successful');
-        //         this.router.navigate(['/login']);
-        //     },
-        //     error => {
-        //         console.warn(error);
-        //         this.loading = false;
-        //     });
-}
+    this.authenticationService
+      .signup(this.registerForm.value)
+  }
 }
