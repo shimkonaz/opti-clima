@@ -18,8 +18,7 @@ import { environment } from 'src/environments/environment';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(
-      environment.firebase, 
-      'opti-clima'
+      environment.firebase
     )
   ],
   providers: [],
