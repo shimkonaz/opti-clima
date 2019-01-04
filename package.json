@@ -18,8 +18,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "commit": "git add . && git commit -m",
-    "postcommit": "git push --all"
+    "git": "git add . && git commit -m",
+    "postgit": "git push --all"
   },
   "dependencies": {
     "@angular/common": "~7.1.0",

@@ -5,13 +5,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CoreRoutingModule } from './core-routing.module';
 
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login';
+import { SignupComponent } from './signup';
+import { HeaderComponent } from './header';
+import { FooterComponent } from './footer';
+import { NavigationComponent } from './navigation';
+import { NotFoundComponent } from './not-found';
+import { HomeComponent } from './home';
 
 @NgModule({
   declarations: [
