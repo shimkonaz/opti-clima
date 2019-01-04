@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { Router } from '@angular/router';
 
@@ -8,8 +7,9 @@ import { Router } from '@angular/router';
 })
 export class AuthenticationService {
 
+  isLogged = false;
+
   constructor(
-    public afAuth: AngularFireAuth,
     private router: Router
     ) { }
   
@@ -43,6 +43,9 @@ export class AuthenticationService {
         console.log('logged in!')
       })
       .then(() => {
+        this.isLogged = true;
+      })
+      .then(() => {
         this.router.navigate(['/home'])
       })
       .catch(function(error) {
@@ -60,5 +63,6 @@ export class AuthenticationService {
 
   logout() {
     auth().signOut();
+    this.isLogged = false;
   }
 }
