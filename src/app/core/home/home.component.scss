@@ -21,6 +21,41 @@
       text-align: center;
     }
     
+    .hint {
+      font-size: smaller;
+      
+      -webkit-animation: color-change 3s infinite;
+      -moz-animation: color-change 3s infinite;
+      -o-animation: color-change 3s infinite;
+      -ms-animation: color-change 3s infinite;
+      animation: color-change 3s infinite;
+    }
+
+    @-webkit-keyframes color-change {
+        0% { color: grey; }
+        50% { color: white; }
+        100% { color: grey; }
+    }
+    @-moz-keyframes color-change {
+        0% { color: grey; }
+        50% { color: white; }
+        100% { color: grey; }
+    }
+    @-ms-keyframes color-change {
+        0% { color: grey; }
+        50% { color: white; }
+        100% { color: grey; }
+    }
+    @-o-keyframes color-change {
+        0% { color: grey; }
+        50% { color: white; }
+        100% { color: grey; }
+    }
+    @keyframes color-change {
+        0% { color: grey; }
+        50% { color: white; }
+        100% { color: grey; }
+    }
   }
   .right {
     height: 100%;

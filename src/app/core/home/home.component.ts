@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  isHinted = false;
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.isHinted = true;
+    setTimeout(() => {
+      this.router.navigate(['/districts'])
+    }, 3000);
   }
 
 }
