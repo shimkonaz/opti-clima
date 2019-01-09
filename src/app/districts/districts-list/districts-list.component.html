@@ -1,8 +1,20 @@
-<div>
-  <ul>
-    <li *ngFor="let district of districts | async">
-      <pre>{{ district.title }}</pre>
-      <button class="btn btn-primary">More</button>
-    </li>
-  </ul>
+<div class="districts-list">
+  <table class="table table-borderless table-hover">
+    <thead>
+      <tr>
+        <th scope="col">District</th>
+        <th scope="col">Area</th>
+        <th scope="col">Warmness</th>
+        <th scope="col">Snowiness</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let district of districts | async">
+      <tr>
+        <th scope="row">{{district.title}}</th>
+        <td>{{district.title}}</td>
+        <td>{{district.title}}</td>
+        <td>{{district.title}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
