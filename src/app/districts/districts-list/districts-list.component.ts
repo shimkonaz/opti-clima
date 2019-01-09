@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { DistrictsService } from '../services/districts.service';
 
 @Component({
   selector: 'app-districts-list',
@@ -10,12 +10,11 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class DistrictsListComponent implements OnInit {
   districts: Observable<any[]>;
 
-  constructor(db: AngularFirestore) {
-    this.districts = db.collection('districts').valueChanges();
-    // console.log(this.districts);
+  constructor(private districtsService: DistrictsService) {
   }
-
+  
   ngOnInit() {
+    this.districts = this.districtsService.getDistrictsList('districts');
   }
 
 }
