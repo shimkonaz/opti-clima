@@ -12,6 +12,7 @@ import { FooterComponent } from './footer';
 import { NavigationComponent } from './navigation';
 import { NotFoundComponent } from './not-found';
 import { HomeComponent } from './home';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HomeComponent } from './home';
     CommonModule,
     CoreRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
     RouterModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DistrictsService } from '../services/districts.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-districts-list',
@@ -9,12 +10,15 @@ import { DistrictsService } from '../services/districts.service';
 })
 export class DistrictsListComponent implements OnInit {
   districts: Observable<any[]>;
+  crimes: Observable<any>;
 
-  constructor(private districtsService: DistrictsService) {
+  constructor(
+    private districtsService: DistrictsService
+    ) {
   }
   
   ngOnInit() {
-    this.districts = this.districtsService.getDistrictsList('districts');
+    this.districts = this.districtsService.getCrimesStatistics();
   }
 
 }

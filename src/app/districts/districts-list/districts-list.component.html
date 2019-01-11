@@ -3,15 +3,13 @@
     <thead>
       <tr>
         <th scope="col">District</th>
-        <th scope="col">Area</th>
-        <th scope="col">Warmness</th>
-        <th scope="col">Snowiness</th>
+        <th scope="col">Crimes Amount</th>
+        <th scope="col">Price/m<sup>2</sup></th>
       </tr>
     </thead>
     <tbody *ngFor="let district of districts | async">
       <tr>
-        <th scope="row">{{district.title}}</th>
-        <td>{{district.title}}</td>
+        <th scope="row">{{district.Mikroraion}}</th>
         <td>{{district.title}}</td>
         <td>{{district.title}}</td>
       </tr>
