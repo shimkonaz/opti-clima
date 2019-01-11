@@ -9,9 +9,9 @@
     </thead>
     <tbody *ngFor="let district of districts | async">
       <tr>
-        <th scope="row">{{district.Mikroraion}}</th>
-        <td>{{district.title}}</td>
-        <td>{{district.title}}</td>
+        <th scope="row">{{district.name}}</th>
+        <th scope="row">{{district.count}}</th>
+        <th scope="row">{{district.averagePrice}}</th>
       </tr>
     </tbody>
   </table>

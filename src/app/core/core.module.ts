@@ -13,8 +13,12 @@ import { NavigationComponent } from './navigation';
 import { NotFoundComponent } from './not-found';
 import { HomeComponent } from './home';
 import { HttpClientModule } from '@angular/common/http';
+import { riaInterceptor } from './interceptors/ria/ria.interceptor';
 
 @NgModule({
+  providers: [
+    riaInterceptor
+  ],
   declarations: [
     LoginComponent, 
     SignupComponent, 

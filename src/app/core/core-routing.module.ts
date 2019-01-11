@@ -27,7 +27,7 @@ const routes: Routes = [
   },
   {
     path: 'districts',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: '../districts/districts.module#DistrictsModule'
   },
   {
