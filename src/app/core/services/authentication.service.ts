@@ -7,8 +7,6 @@ import { Router } from '@angular/router';
 })
 export class AuthenticationService {
 
-  isLogged = false;
-
   constructor(
     private router: Router
     ) { }
@@ -16,9 +14,6 @@ export class AuthenticationService {
   signup(user) {
     auth()
       .createUserWithEmailAndPassword(user.email, user.password)
-      .then(() => {
-        console.log('registered!')
-      })
       .then(() => {
         this.router.navigate(['/login'])
       })
@@ -40,10 +35,7 @@ export class AuthenticationService {
     auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        console.log('logged in!')
-      })
-      .then(() => {
-        this.isLogged = true;
+        localStorage.setItem('currentUser', email);
       })
       .then(() => {
         this.router.navigate(['/home'])
@@ -63,7 +55,7 @@ export class AuthenticationService {
 
   logout() {
     auth().signOut();
-    this.isLogged = false;
+    localStorage.removeItem('currentUser');
     this.router.navigate(['/login']);
   }
 }
