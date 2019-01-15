@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -21,12 +20,28 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', [
+      firstName: ['', [
         Validators.required, 
-        Validators.minLength(6)
+        Validators.maxLength(100)
+      ]],
+      lastName: ['', [
+        Validators.required, 
+        Validators.maxLength(100)
+      ]],
+      email: ['', [
+        Validators.required,
+        Validators.email, 
+        Validators.maxLength(100)
+      ]],
+      password: ['', [
+        Validators.required,
+        Validators.pattern('((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,100})'),
+        Validators.minLength(8), 
+        Validators.maxLength(100)
+      ]],
+      repeatPassword: ['', [
+        Validators.required, 
+        Validators.maxLength(100)
       ]]
     });
   }

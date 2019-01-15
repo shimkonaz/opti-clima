@@ -1,12 +1,14 @@
 <div class="signup-form">
   <h2>Register</h2>
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <form 
+    [formGroup]="registerForm" 
+    (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="firstName">First Name</label>
       <input 
         type="text" 
-        formControlName="firstName" 
         class="form-control" 
+        formControlName="firstName" 
         [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
       <div 
         *ngIf="submitted && f.firstName.errors" 
@@ -20,8 +22,8 @@
       <label for="lastName">Last Name</label>
       <input 
         type="text" 
-        formControlName="lastName" 
         class="form-control" 
+        formControlName="lastName" 
         [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
       <div 
         *ngIf="submitted && f.lastName.errors" 
@@ -35,8 +37,8 @@
       <label for="email">Email</label>
       <input 
         type="text" 
-        formControlName="email" 
         class="form-control" 
+        formControlName="email" 
         [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
       <div 
         *ngIf="submitted && f.email.errors" 
@@ -60,12 +62,31 @@
             Password is required
           </div>
           <div *ngIf="f.password.errors.minlength">
-            Password must be at least 6 characters
+            Password must be at least 8 characters
+          </div>
+          <div *ngIf="f.password.errors.pattern">
+            Password must include at least one capital letter and one number
+          </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="repeatPassword">Repeat password</label>
+      <input 
+        type="password" 
+        formControlName="repeatPassword" 
+        class="form-control" 
+        [ngClass]="{ 'is-invalid': submitted && f.repeatPassword.errors }" />
+      <div 
+        *ngIf="submitted && f.repeatPassword.errors" 
+        class="invalid-feedback">
+          <div *ngIf="f.repeatPassword.errors.required">
+            Passwords not matched
           </div>
       </div>
     </div>
     <div class="form-group">
       <button 
+        type="submit"
         [disabled]="loading" 
         class="btn btn-primary">
         Register
