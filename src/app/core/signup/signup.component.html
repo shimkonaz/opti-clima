@@ -80,7 +80,10 @@
         *ngIf="submitted && f.repeatPassword.errors" 
         class="invalid-feedback">
           <div *ngIf="f.repeatPassword.errors.required">
-            Passwords not matched
+            You have to repeat password
+          </div>
+          <div *ngIf="f.repeatPassword.errors.equalValue">
+            Fields not matched
           </div>
       </div>
     </div>

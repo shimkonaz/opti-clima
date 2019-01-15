@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ValidatorFn } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class SignupComponent implements OnInit {
 
-  registerForm: FormGroup;
+  private registerForm: FormGroup;
   loading = false;
   submitted = false;
 
@@ -43,10 +43,34 @@ export class SignupComponent implements OnInit {
         Validators.required, 
         Validators.maxLength(100)
       ]]
-    });
+    },
+      {validator: this.validatePasswords('password', 'repeatPassword')}
+    );
   }
 
   get f() { return this.registerForm.controls; }
+
+  validatePasswords(targetKey: string, toMatchKey: string): ValidatorFn {
+    return (group: FormGroup): {[key: string]: any} => {
+      const target = group.controls[targetKey];
+      const toMatch = group.controls[toMatchKey];
+      if (target.touched && toMatch.touched) {
+        const isMatch = target.value === toMatch.value;
+
+        if (!isMatch && target.valid && toMatch.valid) {
+          toMatch.setErrors({equalValue: targetKey});
+          const message = targetKey + ' != ' + toMatchKey;
+
+          return {'equalValue': message};
+        }
+
+        if (isMatch && toMatch.hasError('equalValue')) {
+          toMatch.setErrors(null);
+        }
+      }
+      return null;
+    };
+  }
 
   onSubmit() {
     this.submitted = true;
